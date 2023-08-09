@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- Linking Google font link for icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="home.component.css">
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="https://i.postimg.cc/50XqL4kY/pngimg-com-piggy-bank-PNG36.png" alt="logo">
+        <h2>PiGGEY BANK</h2>
+      </div>
+      <ul class="links">
+        <h4>Account</h4>
+        <li>
+          <span class="material-symbols-outlined">person</span>
+          <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">View Profile</a>
+        </li>
+        <li>
+          <span class="material-symbols-outlined">ambient_screen</span>
+          <a href="#">Balance Enquiry</a>
+        </li>
+        <li>
+          <span class="material-symbols-outlined">pacemaker</span>
+          <a data-bs-toggle="modal" data-bs-target="#exampleModal">Money Transfer</a>
+        </li>
+        <li>
+          <span class="material-symbols-outlined">monitoring</span>
+          <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Account Statement</a>
+        </li>
+        <li>
+          <span class="material-symbols-outlined">bar_chart</span>
+          <a data-bs-toggle="modal" data-bs-target="#exampleModal">Bank check</a>
+        </li>
+        <li>
+          <span class="material-symbols-outlined">logout</span>
+          <a href="#">Log out</a>
+        </li>
+      </ul>
+    </aside>
+    <!-- -------modal--------- -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color:black">
+            <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: aliceblue;">Money Transfer</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div style="text-align: center;" >
+            <img src="https://i.postimg.cc/QtFy5Qj7/transfer.jpg" alt="">
+          </div>
+          <div class="modal-body">
+            <input class="form-control" type="text" name="" id="" placeholder="Recipient Account Number"><br>
+            <input class="form-control" type="text" name="" id="" placeholder="Amount To Transfer"><br>
+            <input class="form-control" type="text" name="" id="" placeholder="Password"><br>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark">Transfer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- -------offCanvas--------- -->
+    <div style="background-color: rgba(0, 0, 0, 0.192);" class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header" style="background-color: rgba(0, 0, 0, 0.591);" >
+        <h5 class="offcanvas-title" style="margin-left: 150px; color: aliceblue; " id="offcanvasExampleLabel">Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button><br>
+      </div>
+      <div class="offcanvas-body">
+          <img style="border-radius: 50%; width: 45%;" src="https://i.postimg.cc/YCQK7sfs/60111.jpg" alt="">
+        <div style="margin-top:-106px; margin-left: 244px;">
+          <h3 style="color: beige;">Hi</h3>
+          <p style="color: beige;">Username</p>
+        </div>
+        <div class="dropdown mt-3">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            Dropdown button
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
