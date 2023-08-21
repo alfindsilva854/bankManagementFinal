@@ -10,11 +10,11 @@
     <form action="#">
       <h2>Login</h2>
         <div class="input-field">
-        <input name="acc" id="u1" type="text" required>
+        <input [(ngModel)]="acno" name="acc" id="u1" type="text" required>
         <label>Enter your Account No.</label>
       </div>
       <div class="input-field">
-        <input id="p1" type="password" name="password" required>
+        <input [(ngModel)]="psw" id="p1" type="password" name="password" required>
         <label>Enter your password</label>
       </div>
       <div class="forget">
@@ -24,9 +24,9 @@
         </label>
         <a href="#">Forgot password?</a>
       </div>
-      <button type="button">Log In</button>
+      <button (click)="login()" type="button">Log In</button>
       <div class="register">
-        <p>Don't have an account? <a href="#">Register</a></p>
+        <p>Don't have an account? <a routerLink="signup">Register</a></p>
       </div>
     </form>
   </div>

@@ -1,0 +1,36 @@
+Redierection in angular
+_______________________
+
+path set 
+
+Redierection in methods
+---------------------
+navigateByUrl        - method
+class               - router
+AppRoutingModule    - module
+
+
+link
+-----
+
+href- routerLink
+
+dependancy injection
+_______________________
+
+To use properties of one class in another class
+
+where to do - at constructor()
+
+steps
+_______________________
+
+access specifier - private(injected class available only in that class)/public(injected class available in all other classes pf that file)
+
+class{
+    constructor(){
+
+    }
+}
+
+
