@@ -7,15 +7,21 @@
 </head>
 <body>
   <div class="wrapper" style="background-color: rgba(0, 0, 0, 0.471);">
-    <form action="#">
+    <form [formGroup]="loginForm">
       <h2>Login</h2>
         <div class="input-field">
-        <input [(ngModel)]="acno" name="acc" id="u1" type="text" required>
+        <input formControlName="acno" name="acc" id="u1" type="text" required>
         <label>Enter your Account No.</label>
       </div>
+      <div *ngIf="this.loginForm.get('acno')?.errors && this.loginForm.get('acno')?.touched">
+        <p class="text-danger">please include numbers only</p>
+      </div>
       <div class="input-field">
-        <input [(ngModel)]="psw" id="p1" type="password" name="password" required>
+        <input formControlName="psw" id="p1" type="password" name="password" required>
         <label>Enter your password</label>
+      </div>
+      <div *ngIf="this.loginForm.get('psw')?.errors && this.loginForm.get('psw')?.touched">
+        <p class="text-danger">password incorrect</p>
       </div>
       <div class="forget">
         <label for="remember">

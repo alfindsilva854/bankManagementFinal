@@ -8,17 +8,43 @@ import { DataService } from '../BankServer/data.service';
 })
 export class HomeComponent implements OnInit {
 
-  sdata:any
+  name:any=""
+  acno:any=""
+  balance:any=""
 
   constructor(private ds:DataService){ }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.ds.serviceMethod()
-      
-    }, 2000);
+    //check data present or not in local storage
 
-    this.sdata=this.ds.data
+    if(localStorage.getItem("currentUname")){
+      this.name=localStorage.getItem("currentUname")
+    }
       
   }
+  getbalance(){
+    //acno -ls
+    if(localStorage.getItem("currentAcno")){
+      this.acno=JSON.parse(localStorage.getItem("currentAcno")|| "")
+      // balance
+      this.ds.getBalanceApi(this.acno).subscribe({
+        next: (result:any)=>{
+          this.balance=result.message
+        },
+        error: (result:any)=>{
+          alert(result.error.message)
+        }
+      })
+    }
+  }
+  
+  getProfile(){
+    if(localStorage.getItem("currentAcno")){
+      this.acno=JSON.parse(localStorage.getItem("currentAcno")||"")
+      // console.log(this.acno);
+      // console.log(this.name);
+         
+    }
+  }
+
 }
