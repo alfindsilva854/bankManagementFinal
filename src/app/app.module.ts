@@ -10,6 +10,9 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
+import { DatePipe } from '@angular/common';
+import { HistoryComponent } from './history/history.component';
+import { FilterPipe } from './bankPipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import {HttpClientModule} from '@angular/common/http'
     FooterComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    HistoryComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,7 @@ import {HttpClientModule} from '@angular/common/http'
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

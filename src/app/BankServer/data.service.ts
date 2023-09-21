@@ -30,4 +30,18 @@ export class DataService {
     return this.http.get(`${this.BaseUrl}/bankuser/balance/${acno}`)
   }
 
+  //api to money Transfer
+  moneyTransferApi(sAcno:any,rAcno:any,amount:any,spsw:any,date:any){
+    //body
+    const bodyData={
+      sAcno,rAcno,amount,spsw,date
+    }  
+    return this.http.post(`${this.BaseUrl}/bankuser/money-transfer`,bodyData)
+  }
+
+  //api to get transaction history
+  accountStatementApi(acno:any){
+    return this.http.get(`${this.BaseUrl}/bankuser/account-statement/${acno}`)
+  }
+
 }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="history.component.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <h2 class="text-center p-5">Account Statements</h2>
+
+        <div class="text-center p-5">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button (click)="filterData('')" type="button" class="btn btn-info">All</button>
+                <button (click)="filterData('DEBIT')" type="button" class="btn btn-info">Debit</button>
+                <button (click)="filterData('CREDIT')" type="button" class="btn btn-info">Credit</button>
+              </div>
+
+              <!-- <h5>{{date | date : 'short'}}</h5> -->
+    
+        </div>
+        <div *ngIf="spinner" class="text-center p-4">
+            <i class="fa-solid fa-spinner fa-spin-pulse fa-3x" style="color: #0a30f0;"></i>
+        </div>
+
+    <table *ngIf="!spinner" class="table container">
+        <thead>
+            <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Type</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Account Number</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+             <!-- data | pipeName: searchString :searcjKey -->
+            <tr *ngFor="let i of transactionArray | filter: searchTerm:'type',let j=index ">
+                <th scope="row">{{j+1}}</th>
+                <td>{{i.type}}</td>
+                <td>{{i.amount}}</td>
+                <td>{{i.tacno}}</td>
+                <td>{{i.date}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+<div class="text-center p-5">
+    <button type="button" class="btn btn-warning">Export As</button>
+</div>
+
+<div class="text-end pt-5 pe-5">
+    <button (click)="backtoHome()" type="button" class="btn btn-success">Back To Home</button>
+</div>
+
+</body>
+</html>
+

@@ -129,3 +129,10 @@ body {
 .links .logout-link {
     margin-top: 20px;
 }
+
+.s1{
+    color: green;
+}
+.s2{
+    color: red;
+}

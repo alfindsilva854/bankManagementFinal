@@ -31,19 +31,19 @@
         </li>
         <li>
           <span class="material-symbols-outlined">monitoring</span>
-          <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Account Statement</a>
+          <a data-bs-toggle="offcanvas" routerLink="/history" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Account Statement</a>
         </li>
-        <li>
+        <!-- <li>
           <span class="material-symbols-outlined">bar_chart</span>
-          <a data-bs-toggle="modal" data-bs-target="#exampleModal">Bank check</a>
-        </li>
+          <a data-bs-toggle="modal" data-bs-target="#exampleModal">Account Statements</a>
+        </li> -->
         <li>
           <span class="material-symbols-outlined">logout</span>
           <a href="#">Log out</a>
         </li>
       </ul>
     </aside>
-    <!-- -------modal--------- -->
+    <!-- -------Bank Transfer--------- -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -54,14 +54,22 @@
           <div style="text-align: center;" >
             <img src="https://i.postimg.cc/QtFy5Qj7/transfer.jpg" alt="">
           </div>
-          <div class="modal-body">
-            <input class="form-control" type="text" name="" id="" placeholder="Recipient Account Number"><br>
-            <input class="form-control" type="text" name="" id="" placeholder="Amount To Transfer"><br>
-            <input class="form-control" type="text" name="" id="" placeholder="Password"><br>
+          <div class="text-center p-5">
+            <h4 [ngClass]="msgClr?'s1':'s2'">{{message}}</h4>
           </div>
+         <form [formGroup]="moneyTransferForm">
+            <div class="modal-body">
+              <input formControlName="rAcno" class="form-control" type="text" name="ac" id="rac" placeholder="Recipient Account Number"><br>
+              <p *ngIf="moneyTransferForm.get('rAcno')?.errors&&moneyTransferForm.get('rAcno')?.touched" class="text-danger">Please provide numbers</p>
+              <input formControlName="amount" class="form-control" type="text" name="amn" id="amnt" placeholder="Amount To Transfer"><br>
+              <p *ngIf="moneyTransferForm.get('amount')?.errors&&moneyTransferForm.get('amount')?.touched" class="text-danger">Please provide numbers</p>
+              <input formControlName="psw" class="form-control" type="password" name="psn" id="ps" placeholder="Password"><br>
+              <p *ngIf="moneyTransferForm.get('psw')?.errors&&moneyTransferForm.get('psw')?.touched" class="text-danger">Include numbers and characters</p>
+            </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-dark">Transfer</button>
+            <button (click)="moneyTransfer()" type="button" class="btn btn-dark">Transfer</button>
           </div>
+        </form>  
         </div>
       </div>
     </div>
@@ -104,12 +112,12 @@
           <img style="border-radius: 50%; width: 45%;" src="https://i.postimg.cc/YCQK7sfs/60111.jpg" alt="">
         <div style="margin-top:-106px; margin-left: 244px;">
           <h3 style="color: beige;">Hi</h3>
-          <h3 style="color: beige;">{{name}}</h3>
-          <h3 style="color: beige;">{{acno}}</h3>
+          <p style="color: beige;">{{name}}</p>
+          <p style="color: beige;">acno:{{acno}}</p>
         </div>
         <div class="dropdown mt-3">
           <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-            Dropdown button
+            settings
           </button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Action</a></li>
