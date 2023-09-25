@@ -39,6 +39,8 @@ export class LoginComponent implements OnInit {
           //store acno in local storage
           localStorage.setItem("currentAcno",JSON.stringify(acno))
           localStorage.setItem("currentUname",result.currentUser)
+          localStorage.setItem("token",JSON.stringify(result.token))
+          
           alert(result.message)
           //redirection
           this.rout.navigateByUrl("home")

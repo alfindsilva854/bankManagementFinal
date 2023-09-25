@@ -13,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http'
 import { DatePipe } from '@angular/common';
 import { HistoryComponent } from './history/history.component';
 import { FilterPipe } from './bankPipes/filter.pipe';
+import { DeleteComponent } from './delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FilterPipe } from './bankPipes/filter.pipe';
     SignupComponent,
     HomeComponent,
     HistoryComponent,
-    FilterPipe
+    FilterPipe,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,

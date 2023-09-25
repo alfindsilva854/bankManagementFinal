@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../BankServer/data.service';
 import { Router } from '@angular/router';
+import {jsPDF }from 'jspdf'
+import  'jspdf-autotable';
 
 @Component({
   selector: 'app-history',
@@ -45,5 +47,42 @@ export class HistoryComponent implements OnInit {
   }
   filterData(search:any){
     this.searchTerm=search
+  }
+
+  pdfExport(){
+
+    //create an object for class jsPDF
+
+    var pdf=new jsPDF()
+
+    //set columns
+    let col=['Type','Amount','Account number','Date']
+
+    //set row
+    let row=[]
+
+    //style
+    pdf.setFontSize(16)
+    pdf.text("Account Statement",15,10)
+    pdf.setFontSize(12)
+    pdf.setTextColor('blue')
+
+    //array of array -nested array
+    var allDataArray=this.transactionArray
+    for(let i of allDataArray){
+      let rowData=[i.type,i.amount,i.tacno,i.date]
+      row.push(rowData)
+    }
+
+    //converted to pdf as table
+    (pdf as any).autoTable(col,row,{startY:15})
+
+    //open converted pdf in new tab
+    pdf.output('dataurlnewwindow')
+
+    //download and save
+
+    pdf.save('accountStatement.pdf')
+
   }
 }

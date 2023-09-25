@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="home.component.css">
   </head>
   <body>
+    <div>
+     <app-delete [data]="dAcno" (onCancel)="cancelp()" (onDelete)="yesDelete($event)" ></app-delete>
+    </div>
    <!-- <header><h3>{{name}}</h3></header> -->
     <aside class="sidebar">
       <div class="logo">
@@ -121,8 +124,8 @@
           </button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li (click)="deleteActive()" ><a class="dropdown-item">deleteAccount</a></li>
+            <li (click)="logout()" ><a class="dropdown-item">Logout</a></li>
           </ul>
         </div>
       </div>

@@ -1,0 +1,10 @@
+ <div *ngIf="data" class="container w-50">
+    <div style="background-color: rgba(124, 239, 235, 0.904);"
+        class="container p-5 m-4 border-info-subtle rounded-5 text-center">
+        <h3> Are you sure you want to Delete your Account?{{data}}</h3>
+    
+        <button (click)="deleteAcc()" class="btn btn-outline-danger px-5 m-3">Yes</button>
+        <button (click)="cancel()" class="btn btn-outline-success px-5 m-3">No</button>
+    
+    </div>
+</div> 
